@@ -133,6 +133,7 @@ Example app listening at http://localhost:3000
 # Note from Node.js to Docker
 1. 程式位置更動
 index.js -> ./src/index.js
+../video -> ./video
 
 2. 程式引用結構更動(與程式啟動位置有關)<br/>
 In index.js<br>
