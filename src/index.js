@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 
 app.get("/video",(req,res)=>{
-    const path = "../video/SampleVideo_1280x720_1mb.mp4";
+    const path = "./videos/SampleVideo_1280x720_1mb.mp4";
     fs.stat(path,(err, stats)=>{
         if(err){
             console.error("Error occurred");
@@ -33,5 +33,6 @@ app.get("/video",(req,res)=>{
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`HelloWorld listening at http://<docker_host>:${port}`)
+  console.log(`Example image listening at http://<docker_host>:${port}/videos`)
 })
