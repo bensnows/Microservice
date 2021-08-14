@@ -148,30 +148,9 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 $ docker push benregis.azurecr.io/video-streaming
 The push refers to repository [benregis.azurecr.io/video-streaming]
 b2eacc3c1327: Preparing
-0571a0a2c4a7: Preparing
-6395784914a5: Preparing
-54711a294d6f: Preparing
-d424a60c480f: Preparing
-501154e4b55f: Preparing
-54b8a9e61578: Preparing
-4ece4c4c93ba: Preparing
-3e207b409db3: Preparing
-501154e4b55f: Waiting
-54b8a9e61578: Waiting
-4ece4c4c93ba: Waiting
-3e207b409db3: Waiting
-0571a0a2c4a7: Pushed
-54711a294d6f: Pushed
-d424a60c480f: Pushed
-6395784914a5: Pushed
-b2eacc3c1327: Pushed
-501154e4b55f: Pushed
-54b8a9e61578: Pushed
-3e207b409db3: Pushed
-4ece4c4c93ba: Pushed
+...
+...
 latest: digest: sha256:0bb9701eda2978a978070c2863ede2c353f7ca291994a866a45f2da063d4321f size: 2203
-
-
 ```
 
 # Note from Node.js to Docker
