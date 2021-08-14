@@ -89,8 +89,9 @@ $ docker rmi <imageId> //successfully when image is not used by container
 ```
 
 3. Docker run image
-* docker run -d -p `<os port>:<container port> <containerId> --env varName=value`
+* docker run -d -p `<os port>:<container port> <imageId> --env varName=value`
 ```bash
+# 50bcc: image id
 $ docker run -d -p 3000:3000 50bcc
 ----------------------------------------------
 $ docker run -d -p 3000:3000 --env PORT=3000 $(docker image list video-streaming:latest --format "{{.ID}}")

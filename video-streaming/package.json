@@ -1,5 +1,5 @@
 {
-  "name": "microservice",
+  "name": "video-streaming",
   "version": "1.0.0",
   "description": "Learning Microservice from BOOK[manning-bootstrapping-microservices-docker-kubernetes-2021]",
   "main": "index.js",
