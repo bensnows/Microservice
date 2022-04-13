@@ -22,44 +22,44 @@ const STORAGE_ACCESS_KEY = process.env.STORAGE_ACCESS_KEY;
 
 
 function createBolbService() {
-  const blobService = azure.createBlobService(
-    STORAGE_ACCOUNT_NAME,
-    STORAGE_ACCESS_KEY
-  );
-  return blobService;
+    const blobService = azure.createBlobService(
+        STORAGE_ACCOUNT_NAME,
+        STORAGE_ACCESS_KEY
+    );
+    return blobService;
 }
 
 app.get("/video", (req, res) => {
-  const videoPath = req.query.path;
-  const blobService = createBolbService();
+    const videoPath = req.query.path;
+    const blobService = createBolbService();
 
-  const containerName = "video";
-  blobService.getBlobProperties(containerName, videoPath, (err, properties) => {
-    if (err) {
-      console.error("Error occurred when get azure-blob properties");
-      console.log(err);
-      res.sendStatus(500);
-      return;
-    }
+    const containerName = "videos";
+    blobService.getBlobProperties(containerName, videoPath, (err, properties) => {
+        if (err) {
+            console.error("Error occurred when get azure-blob properties");
+            console.log(err);
+            res.sendStatus(500);
+            return;
+        }
 
-    res.writeHead(200, {
-      "Content-Length": properties.contentLength,
-      "Content-Type": "video/mp4",
+        res.writeHead(200, {
+            "Content-Length": properties.contentLength,
+            "Content-Type": "video/mp4",
+        });
+
+        //send out stream from azure blob to res;
+        blobService.getBlobToStream(containerName, videoPath, res, (err) => {
+            if (err) {
+                console.error("Error occurred when send blob to stream");
+                console.log(err)
+                res.sendStatus(500);
+                return;
+            }
+        });
     });
-
-    //send out stream from azure blob to res;
-    blobService.getBlobToStream(containerName, videoPath, res, (err) => {
-      if (err) {
-        console.error("Error occurred when send blob to stream");
-        console.log(err)
-        res.sendStatus(500);
-        return;
-      }
-    });
-  });
 });
 
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log("Microservice is online")
 })
